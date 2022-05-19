@@ -1,6 +1,8 @@
 package listacompras
 
-import menu.Menu
+import util.MSG_FORMATO_INVÁLIDO
+import util.MSG_NUM_NEGATIVO
+import util.MSG_VALOR_VAZIO
 
 class ListaCompras {
     companion object {
@@ -9,17 +11,17 @@ class ListaCompras {
             val input = readln()
 
             if (input.isEmpty() || input.isBlank()) {
-                throw UnsupportedOperationException("Não é permitido inserir valor vazio")
+                throw UnsupportedOperationException(MSG_VALOR_VAZIO)
             }
             var gramas = 0.0
             try {
                 gramas = input.toDouble()
                 if (gramas < 0.0) {
-                    println("Não é permitido números negativos, tente novamente")
+                    println(MSG_NUM_NEGATIVO)
                     informarQuantidadeVerduraGrao(alimento)
                 }
             } catch (exception: NumberFormatException) {
-                println("Não é permitido texto, somente número")
+                println(MSG_FORMATO_INVÁLIDO )
             }
             return gramas
         }
@@ -29,7 +31,7 @@ class ListaCompras {
             val nome = readln()
 
             if (nome.isEmpty() || nome.isBlank()) {
-                throw UnsupportedOperationException("Não é permitido inserir valor vazio")
+                throw UnsupportedOperationException(MSG_VALOR_VAZIO)
             }
             return nome
         }
@@ -44,15 +46,13 @@ class ListaCompras {
             try {
                 unidades = input.toInt()
                 if (unidades < 0) {
-                    println("Não é permitido números negativos, tente novamente")
+                    println(MSG_NUM_NEGATIVO)
                     informarQuantidadeVerduraGrao(alimento)
                 }
             } catch (exception: NumberFormatException) {
-                println("Não é permitido texto, somente número")
+                println(MSG_FORMATO_INVÁLIDO )
             }
             return unidades
         }
     }
 }
-
-
