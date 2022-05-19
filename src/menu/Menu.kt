@@ -3,6 +3,7 @@ package menu
 import listacompras.ListaCompras.Companion.informarNomeAlimento
 import listacompras.ListaCompras.Companion.informarQuantidadeLegumeOutros
 import listacompras.ListaCompras.Companion.informarQuantidadeVerduraGrao
+import util.MSG_TIPO_INVÁLIDO
 import kotlin.system.exitProcess
 
 class Menu {
@@ -15,7 +16,7 @@ class Menu {
             val alimento = readln().lowercase()
 
             if ((alimento != "verdura") && (alimento != "legume") && (alimento != "grão") && (alimento != "grao") && (alimento != "outros") && (alimento != "ver lista") && (alimento != "sair")) {
-                throw IllegalArgumentException("Tipo de alimento inválido")
+                throw IllegalArgumentException(MSG_TIPO_INVÁLIDO)
             }
 
             when (alimento) {
@@ -39,9 +40,10 @@ class Menu {
                     } else {
                         println("---------- LISTA DE COMPRAS ----------")
                         listaAlimentos.forEach { alimento, quantidade ->
-                            println("Nome do item: ${alimento}. Quantidade: ${quantidade}.")
-                            menu()
+                            println("Nome do item: ${alimento} - Quantidade: ${quantidade}.")
                         }
+                        println("A quantidade de alimentos do tipo outros alimentos a ser comprada é = ${listaAlimentos.size}")
+                        menu()
                     }
                 }
                 "sair" -> {
@@ -50,7 +52,6 @@ class Menu {
                 }
             }
         }
-
 
     }
 }
