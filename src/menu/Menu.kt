@@ -35,14 +35,14 @@ class Menu {
                     //TODO: terminar de implementar lógica (1/3)
                 }
                 "ver lista" -> {
-                    if (Menu.listaAlimentos.isEmpty()) {
+                    if (listaAlimentos.isEmpty()) {
                         println("Sua lista está vazia")
-                        Menu.menu()
+                        menu()
                     } else {
                         println("---------- LISTA DE COMPRAS ----------")
-                        Menu.listaAlimentos.forEach { alimento, quantidade ->
+                        listaAlimentos.forEach { alimento, quantidade ->
                             println("Nome do item: ${alimento}. Quantidade: ${quantidade}.")
-                            Menu.menu()
+                            menu()
                         }
                     }
                 }
