@@ -1,5 +1,7 @@
 package listacompras
 
+import menu.Menu
+
 class ListaCompras {
     companion object {
         fun informarQuantidadeVerduraGrao(alimento: String):Double{
@@ -52,3 +54,5 @@ class ListaCompras {
         }
     }
 }
+
+
